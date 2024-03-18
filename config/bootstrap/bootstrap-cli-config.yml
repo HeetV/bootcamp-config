@@ -56,30 +56,79 @@ bootstrap:
     # Mapping between IDP (Azure Active Directory) groups and CDF groups.
     idp-cdf-mappings:
     # Support multiple CDF Projects, like dev/test/prod in one config.
-        - cdf-project: <CDF project name> # i.e. bootcamp-01-test
+        - cdf-project: cdf-bootcamp-72-prod # i.e. bootcamp-01-test
           mappings:
               - cdf-group: cdf:root
-                idp-source-id: <AAD Group Object id>
-                idp-source-name: <AAD Group name>
+                idp-source-id: 277d3ed2-3132-4ee8-91fc-72d68058160a
+                idp-source-name: bootcamp-72-prod-admin
               - cdf-group: cdf:all:owner
-                idp-source-id: <AAD Group Object Id> # for the AAD Group to be matched to cdf-group
-                idp-source-name: <AAD Group name> # i.e. bootcamp-01-test-all-owner
+                idp-source-id: 5897fc37-abc9-473c-a842-728b4a2fd2e6 # for the AAD Group to be matched to cdf-group
+                idp-source-name: bootcamp-72-prod-all-owner # i.e. bootcamp-01-test-all-owner
               - cdf-group: cdf:all:read
-                idp-source-id: <AAD Group Object Id> # for the AAD Group to be matched to cdf-group
-                idp-source-name: <AAD Group name> # i.e. bootcamp-01-test-all-read
+                idp-source-id: 4b1f9eb2-bd15-4626-b70f-993026975c86 # for the AAD Group to be matched to cdf-group
+                idp-source-name: bootcamp-72-test-all-read # i.e. bootcamp-01-test-all-read
 
 
-    namespaces:
-        # Typical config will have a namespace for data sources ("src") and a namespace for use cases ("uc")
-        - ns-name: <Namespace name>
-          description: Data sources for the Ice Cream Factory # HINT
+          namespaces:
+    # Typical config will have separate namespace by data source ("src") and use cases ("uc")
+    - ns-name: src
+      description: Sources used for data extraction
+      # Description names will normally follow src:001:srcname or uc:001:usecasename naming convention
+      ns-nodes:
+        - node-name: src:001:sap
+          description: Source 01 data from SAP
+        - node-name: src:002:opcua
+          description: Source 02 data from opcua
+    # Typical config will have separate namespace by data source ("src") and use cases ("uc")
+    - ns-name: uc
+      description: Use cases representing the data/products
 
-          # Node names will normally follow src:001:srcname or uc:001:usecasename naming convention
-          ns-nodes:
-              - node-name: <Node name>
-                description: Data from SAP # HINT
-        # HINT: Add another namespace below
+      # Description names will normally follow src:001:srcname or uc:001:usecasename naming convention
+      ns-nodes:
+        - node-name: uc:001:oee
+          description: Use case 001 Over all Equipment effectiveness
+          shared-access:
+            read:
+              - node-name: src:001:sap
+              - node-name: src:002:opcua
 
+ # Mapping between IDP (Azure Active Directory) groups and CDF groups.
+    idp-cdf-mappings:
+    # Support multiple CDF Projects, like dev/test/prod in one config.
+        - cdf-project: cdf-bootcamp-72-prod # i.e. bootcamp-01-test
+          mappings:
+              - cdf-group: cdf:root
+                idp-source-id: cdd02566-b35f-430d-a85d-d74ad1fff6a6
+                idp-source-name: bootcamp-72-prod-admin
+              - cdf-group: cdf:all:owner
+                idp-source-id: 491a15c4-c492-448a-ab92-0463869ba971 # for the AAD Group to be matched to cdf-group
+                idp-source-name: bootcamp-72-prod-all-owner # i.e. bootcamp-01-test-all-owner
+              - cdf-group: cdf:all:read
+                idp-source-id: 35cc92ce-c8aa-4db4-8a35-c1a531668f2c # for the AAD Group to be matched to cdf-group
+                idp-source-name: bootcamp-72-test-all-read # i.e. bootcamp-01-test-all-read
+
+          namespaces:
+    # Typical config will have separate namespace by data source ("src") and use cases ("uc")
+    - ns-name: src
+      description: Sources used for data extraction
+      # Description names will normally follow src:001:srcname or uc:001:usecasename naming convention
+      ns-nodes:
+        - node-name: src:001:sap
+          description: Source 01 data from SAP
+        - node-name: src:002:opcua
+          description: Source 02 data from opcua
+    # Typical config will have separate namespace by data source ("src") and use cases ("uc")
+    - ns-name: uc
+      description: Use cases representing the data/products
+
+      # Description names will normally follow src:001:srcname or uc:001:usecasename naming convention
+      ns-nodes:
+        - node-name: uc:001:oee
+          description: Use case 001 Over all Equipment effectiveness
+          shared-access:
+            read:
+              - node-name: src:001:sap
+              - node-name: src:002:opcua
 
 # de-facto standards for CDF CogniteClient and logger configuration.
 # Following the same parameter structure as the 'Cognite Python Extractor-Utilities'
