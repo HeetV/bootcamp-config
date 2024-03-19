@@ -71,7 +71,7 @@ bootstrap:
 
           namespaces:
     # Typical config will have separate namespace by data source ("src") and use cases ("uc")
-    - ns-name: src
+        - ns-name: src
       description: Sources used for data extraction
       # Description names will normally follow src:001:srcname or uc:001:usecasename naming convention
       ns-nodes:
