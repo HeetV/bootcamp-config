@@ -26,7 +26,7 @@ extpipe-pattern: '{source}:{short-name}:{rawtable-name}:{suffix}'
 
 # can contain multiple contacts, can be overwritten on pipeline level
 default-contacts:
-    - name: <Contact name>
+    - name: Maria
       email: <Contact email>
       role: <Role name>
       send-notification: true
@@ -47,7 +47,7 @@ rawdbs:
                   contacts:
                       - name: Heet Vora
                         email: heet.vora@worley.com
-                        role: Bootcamp 72 Administration
+                        role: Bootcamp 72 Administration  
                         send-notification: false
                         
 rawdbs:
