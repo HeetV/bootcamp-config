@@ -1,17 +1,15 @@
+---
 # Manifest file downloaded from fusion
-externalId: tr-create_asset_hierarchy
-name: create_asset_hierarchy
+externalId: tr-asset-mapping
+name: asset-mapping
 query: >-
     file: transformation.sql
 destination:
-  type: asset_hierarchy
+    type: timeseries
 ignoreNullFields: true
 shared: true
-action: upsert
-schedule:
-  interval: 35 * * * *
-  isPaused: false
-dataSetExternalId: src:001:sap:ds
+action: update
+dataSetExternalId: uc:001:oee:ds
 # Specify credentials separately like this:
 # authentication:
 #   read:
@@ -22,4 +20,4 @@ dataSetExternalId: src:001:sap:ds
   # Optional: If idP requires providing the scopes
     cdfProjectName: bootcamp-72-test-all-owner-app
     scopes:
-        - https://westeurope-1.cognitedata.com/.default 
+        - https://westeurope-1.cognitedata.com/.default
