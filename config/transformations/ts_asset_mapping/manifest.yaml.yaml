@@ -1,23 +1,42 @@
+<<<<<<< Updated upstream
 ---
+=======
+>>>>>>> Stashed changes
 # Manifest file downloaded from fusion
 externalId: tr-asset-mapping
 name: asset-mapping
 query: >-
+<<<<<<< Updated upstream
     file: transformation.sql
 destination:
     type: timeseries
+=======
+  file: transformation.sql
+destination:
+  type: timeseries
+>>>>>>> Stashed changes
 ignoreNullFields: true
 shared: true
 action: update
 dataSetExternalId: uc:001:oee:ds
 # Specify credentials separately like this:
+<<<<<<< Updated upstream
 # authentication:
 #   read:
 #     authentication:
+=======
+authentication:
+>>>>>>> Stashed changes
     clientId: 65f7112a-fddc-4663-a86c-d6a58d3fe9c7
     clientSecret: Xg~8Q~5_dgfFs0aQ~YM1YSMATp.GaQrwl5sfrcFK
     tokenUrl: https://login.microsoftonline.com/16e3985b-ebe8-4e24-9da4-933e21a9fc81/oauth2/v2.0/token
   # Optional: If idP requires providing the scopes
+<<<<<<< Updated upstream
     cdfProjectName: bootcamp-72-test-all-owner-app
     scopes:
         - https://westeurope-1.cognitedata.com/.default
+=======
+    cdfProjectName: 72-test-all-owner-app
+    scopes:
+        - https://westeurope-1.cognitedata.com/.default
+>>>>>>> Stashed changes
